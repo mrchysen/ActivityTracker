@@ -15,16 +15,18 @@ public class Worker(
         {
             var info = _accessor.GetCurrentActiveAppName();
 
+            
+
             if (_logger.IsEnabled(LogLevel.Information) && info != null)
             {
                 _logger.LogInformation(
                     "Worker running at: {time} | appName: {currentAppName} | infoInApp: {info}",
-                    DateTimeOffset.Now,
+                    info.DateTime,
                     info.AppName,
-                    info.InfoInApp);
+                    info.SubInfo);
             }
 
-            await Task.Delay(2000, stoppingToken);
+            await Task.Delay(1000, stoppingToken);
         }
     }
 }

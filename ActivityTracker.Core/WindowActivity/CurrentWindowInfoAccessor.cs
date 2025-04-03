@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.Logging;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Diagnostics;
 using System.Text;
 
 namespace ActivityTracker.Core.WindowActivity;
 
-public record CurrentActivityWindowInfo(string AppName, string InfoInApp);
+public record CurrentActivityWindowInfo(string AppName, string SubInfo, DateTime DateTime);
 
 public interface ICurrentWindowInfoAccessor
 {
@@ -14,8 +14,9 @@ public interface ICurrentWindowInfoAccessor
 
 public class CurrentWindowInfoAccessor(ILogger<CurrentWindowInfoAccessor> logger) : ICurrentWindowInfoAccessor
 {
-    private const int StringBuilderLength = 256;
     private readonly ILogger<CurrentWindowInfoAccessor> _logger = logger;
+
+    public const int SubInfoLength = 256;
 
     /// <summary>
     /// Возвращает дескриптор активного окна
@@ -46,7 +47,7 @@ public class CurrentWindowInfoAccessor(ILogger<CurrentWindowInfoAccessor> logger
 
     public CurrentActivityWindowInfo? GetCurrentActiveAppName()
     {
-        var subInfoBuffer = new StringBuilder(StringBuilderLength);
+        var subInfoBuffer = new StringBuilder(SubInfoLength);
 
         IntPtr activeWindowHandle = GetForegroundWindow();
 
@@ -59,7 +60,7 @@ public class CurrentWindowInfoAccessor(ILogger<CurrentWindowInfoAccessor> logger
             return null;
         }
 
-        var subInfoResult = GetWindowText(activeWindowHandle, subInfoBuffer, StringBuilderLength);
+        var subInfoResult = GetWindowText(activeWindowHandle, subInfoBuffer, SubInfoLength);
 
         try
         {
@@ -67,7 +68,8 @@ public class CurrentWindowInfoAccessor(ILogger<CurrentWindowInfoAccessor> logger
 
             return new CurrentActivityWindowInfo(
                 process.ProcessName, 
-                subInfoResult > 0 ? subInfoBuffer.ToString() : string.Empty); 
+                subInfoResult > 0 ? subInfoBuffer.ToString() : string.Empty,
+                DateTime.Now); 
         }
         catch(Exception ex)
         {

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Worker">
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
@@ -17,5 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ActivityTracker.Core\ActivityTracker.Core.csproj" />
+    <ProjectReference Include="..\ActivityTracker.DAL\ActivityTracker.DAL.csproj" />
   </ItemGroup>
 </Project>

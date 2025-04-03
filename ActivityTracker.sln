@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35825.156 d17.13
+VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityTracker.Worker", "ActivityTracker\ActivityTracker.Worker.csproj", "{3BF278F5-14B6-49A0-B745-3FBA5C1E15D7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityTracker.Core", "ActivityTracker.Core\ActivityTracker.Core.csproj", "{67A3B4D4-68B0-498A-8DA2-FAEEA198C193}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityTracker.DAL", "ActivityTracker.DAL\ActivityTracker.DAL.csproj", "{5E08766D-4433-487B-A914-BFA51E0174F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{67A3B4D4-68B0-498A-8DA2-FAEEA198C193}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67A3B4D4-68B0-498A-8DA2-FAEEA198C193}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67A3B4D4-68B0-498A-8DA2-FAEEA198C193}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E08766D-4433-487B-A914-BFA51E0174F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E08766D-4433-487B-A914-BFA51E0174F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E08766D-4433-487B-A914-BFA51E0174F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E08766D-4433-487B-A914-BFA51E0174F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
