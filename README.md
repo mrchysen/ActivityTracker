@@ -1,5 +1,5 @@
-Чтобы добавить миграцию необходимо в корне проекта(где лежит файл README) запустить команду
+Р§С‚РѕР±С‹ РґРѕР±Р°РІРёС‚СЊ РјРёРіСЂР°С†РёСЋ РЅРµРѕР±С…РѕРґРёРјРѕ РІ РєРѕСЂРЅРµ РїСЂРѕРµРєС‚Р°(РіРґРµ Р»РµР¶РёС‚ С„Р°Р№Р» README) Р·Р°РїСѓСЃС‚РёС‚СЊ РєРѕРјР°РЅРґСѓ
 
 `//  dotnet ef migrations add <YOUR_MIGRATION_NAME> -v --project ActivityTracker -s ./ActivityTracker -p ./ActivityTracker.DAL -o ./ActivityTracker.DAL/Migrations`
 
-YOUR_MIGRATION_NAME - замени на миграцию с названием изменений в бд
+YOUR_MIGRATION_NAME - Р·Р°РјРµРЅРё РЅР° РјРёРіСЂР°С†РёСЋ СЃ РЅР°Р·РІР°РЅРёРµРј РёР·РјРµРЅРµРЅРёР№ РІ Р±Рґ
