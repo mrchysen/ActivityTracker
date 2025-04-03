@@ -2,9 +2,9 @@
 
 namespace ActivityTracker.DAL.DbModels.MappingExtension;
 
-public static class CurrentActivityWindowInfoMapper
+internal static class CurrentActivityWindowInfoMapper
 {
-    public static CurrentActivityWindowInfoDb MapToDb(this CurrentActivityWindowInfo windowInfo)
+    internal static CurrentActivityWindowInfoDb MapToDb(this CurrentActivityWindowInfo windowInfo)
         => new()
         {
             AppName = windowInfo.AppName,
@@ -12,7 +12,7 @@ public static class CurrentActivityWindowInfoMapper
             DateTime = windowInfo.DateTime
         };
 
-    public static IEnumerable<CurrentActivityWindowInfoDb> MapToDb(this IEnumerable<CurrentActivityWindowInfo> windowInfos)
+    internal static IEnumerable<CurrentActivityWindowInfoDb> MapToDb(this IEnumerable<CurrentActivityWindowInfo> windowInfos)
     {
         foreach (var windowInfo in windowInfos)
         {
@@ -20,10 +20,10 @@ public static class CurrentActivityWindowInfoMapper
         }
     }
 
-    public static CurrentActivityWindowInfo MapFromDb(this CurrentActivityWindowInfoDb windowInfoDb)
+    internal static CurrentActivityWindowInfo MapFromDb(this CurrentActivityWindowInfoDb windowInfoDb)
         => new(windowInfoDb.AppName, windowInfoDb.SubInfo, windowInfoDb.DateTime);
 
-    public static IEnumerable<CurrentActivityWindowInfo> MapFromDb(this IEnumerable<CurrentActivityWindowInfoDb> windowInfoDbs)
+    internal static IEnumerable<CurrentActivityWindowInfo> MapFromDb(this IEnumerable<CurrentActivityWindowInfoDb> windowInfoDbs)
     {
         foreach (var windowInfoDb in windowInfoDbs)
         {

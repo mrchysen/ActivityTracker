@@ -1,6 +1,7 @@
 using ActivityTracker.Core.WindowActivity;
+using ActivityTracker.WorkerServices.MigrationExtension;
 
-namespace ActivityTracker;
+namespace ActivityTracker.WorkerServices;
 
 public class Worker(
     ILogger<Worker> logger,
@@ -11,11 +12,14 @@ public class Worker(
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
+        while(!MigratorFlag.IsMigrationsEnsured) 
+        { 
+            await Task.Delay(100, stoppingToken); 
+        }
+
         while (!stoppingToken.IsCancellationRequested)
         {
             var info = _accessor.GetCurrentActiveAppName();
-
-            
 
             if (_logger.IsEnabled(LogLevel.Information) && info != null)
             {
